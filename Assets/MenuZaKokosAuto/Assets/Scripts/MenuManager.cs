@@ -31,46 +31,49 @@ public class MenuManager : MonoBehaviour
 
     public void SetMasterVolume()
     {
-        float masterVolume = master.value;
-        mixer.SetFloat("masterValue", masterVolume);
-        PlayerPrefs.SetFloat("MasterVolume", masterVolume);
+        float sliderValue = master.value; // vrednost od 0.0001 do 1
+        float dB = Mathf.Log10(sliderValue) * 20;
+        mixer.SetFloat("masterValue", dB);
+        PlayerPrefs.SetFloat("MasterVolume", sliderValue);
     }
 
     public void SetMusicVolume()
     {
-        float musicVolume = music.value;
-        mixer.SetFloat("musicValue", musicVolume);
-        PlayerPrefs.SetFloat("MusicVolume", musicVolume);
+        float sliderValue = music.value;
+        float dB = Mathf.Log10(sliderValue) * 20;
+        mixer.SetFloat("musicValue", dB);
+        PlayerPrefs.SetFloat("MusicVolume", sliderValue);
     }
 
     public void SetSFXVolume()
     {
-        float sfxVolume = sfx.value;
-        mixer.SetFloat("SFXValue", sfxVolume);
-        PlayerPrefs.SetFloat("SFXVolume", sfxVolume);
+        float sliderValue = sfx.value;
+        float dB = Mathf.Log10(sliderValue) * 20;
+        mixer.SetFloat("SFXValue", dB);
+        PlayerPrefs.SetFloat("SFXVolume", sliderValue);
     }
 
     private void LoadVolumeSettings()
     {
         if (PlayerPrefs.HasKey("MasterVolume"))
         {
-            float masterVolume = PlayerPrefs.GetFloat("MasterVolume");
-            master.value = masterVolume;
-            mixer.SetFloat("masterValue", masterVolume);
+            float savedValue = PlayerPrefs.GetFloat("MasterVolume");
+            master.value = savedValue;
+            mixer.SetFloat("masterValue", Mathf.Log10(savedValue) * 20);
         }
 
         if (PlayerPrefs.HasKey("MusicVolume"))
         {
-            float musicVolume = PlayerPrefs.GetFloat("MusicVolume");
-            music.value = musicVolume;
-            mixer.SetFloat("musicValue", musicVolume);
+            float savedValue = PlayerPrefs.GetFloat("MusicVolume");
+            music.value = savedValue;
+            mixer.SetFloat("musicValue", Mathf.Log10(savedValue) * 20);
         }
 
         if (PlayerPrefs.HasKey("SFXVolume"))
         {
-            float sfxVolume = PlayerPrefs.GetFloat("SFXVolume");
-            sfx.value = sfxVolume;
-            mixer.SetFloat("SFXValue", sfxVolume);
+            float savedValue = PlayerPrefs.GetFloat("SFXVolume");
+            sfx.value = savedValue;
+            mixer.SetFloat("SFXValue", Mathf.Log10(savedValue) * 20);
         }
     }
 

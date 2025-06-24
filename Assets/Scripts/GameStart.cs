@@ -24,7 +24,7 @@ public class GameStart : MonoBehaviour
 
     public void buttonReset()
     {
-        PlayerPrefs.SetInt("Saved", 1);
+        PlayerPrefs.SetInt("CompletedGame", 1);
         SceneManager.LoadScene(0);
     }
 

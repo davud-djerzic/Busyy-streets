@@ -13,7 +13,7 @@ public class ManipulateAchievementsPanel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        manipulateAchievements("indexOfAchievementPanelPlayedTime");
+        //manipulateAchievements("indexOfAchievementPanelPlayedTime");
     }
 
     public void manipulateAchievements(string PlayerPrefsString)

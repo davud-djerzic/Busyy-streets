@@ -113,9 +113,11 @@ public class Profile : MonoBehaviour
         //SpriteRenderer spriteRenderer = carPrefab.GetComponent<SpriteRenderer>();
 
         g.transform.GetChild(0).GetComponent<Image>().sprite = gar.image; // postavlja sliku kloniranog objekta kao auto
-        
+
+        if (instantiatedCars == null)
+            instantiatedCars = new List<GameObject>();
+
         instantiatedCars.Add(g); // dodaje klonirani objekat u listu za dalju upotrebu
-        
     }
 
     public void selectCar(int index)

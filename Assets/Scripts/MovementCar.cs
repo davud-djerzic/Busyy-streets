@@ -10,8 +10,8 @@ public class MovementCar : MonoBehaviour
     [SerializeField] private GameObject[] wayPoints;
     [SerializeField] private GameObject car;
 
-    public static float speed = 10.0f;
-    public float rotationSpeed = 25f;
+    public static float speed = 20.0f;
+    public float rotationSpeed = 200f;
     private int currentIndex = 0;
     public bool isMoving = false;
     private Button button;
@@ -30,6 +30,7 @@ public class MovementCar : MonoBehaviour
     public TextMeshProUGUI winLoseText;
     public TextMeshProUGUI coinsText;
 
+    private bool canActivateNextCar = true;
     private void Start()
     {
         MovementOfChoosenCar.isFinishMovement = true;
@@ -75,11 +76,23 @@ public class MovementCar : MonoBehaviour
                 {
                     isMoving = false; // auto se zasutavlja
                     carAudio.Stop(); // gasi se sound auta
-                    EnableButtons(); // buttoni se mogu koristiti
+                    //EnableButtons(); // buttoni se mogu koristiti
                 }
             }
             car.transform.position = Vector2.MoveTowards(car.transform.position, wayPoints[currentIndex].transform.position, Time.deltaTime * speed);
-
+            if (currentIndex == wayPoints.Length - 2 && canActivateNextCar)
+            {
+                canActivateNextCar = false; // da se ne pozove više puta
+                EnableButtons();
+                /*// Aktiviraj dugmad za druge aute, ali NE ovaj aktivni
+                for (int i = 0; i < checkWin.buttons.Length; i++)
+                {
+                    if (checkWin.buttons[i] != button)
+                    {
+                        checkWin.buttons[i].interactable = true;
+                    }
+                }*/
+            }
 
             Vector2 targetPosition = wayPoints[currentIndex].transform.position;
             Vector2 direction = targetPosition - (Vector2)car.transform.position;
@@ -139,13 +152,19 @@ public class MovementCar : MonoBehaviour
         winLosePanelPauseMenu.NextLevelIntro();
         winLosePanel.SetActive(true);
         winLoseText.text = "You Win!!!";
-        if (CheckWin.streak == 3)
+        if (CheckWin.isNewLevelFinished)
         {
-            coinsText.text = "+70";
-
+            if (CheckWin.streak == 3)
+            {
+                coinsText.text = "+300";
+            }
+            else
+            {
+                coinsText.text = "+200";
+            }
         } else
         {
-            coinsText.text = "+50";
+            coinsText.text = "+0";
         }
 
         Timer.elapsedTime = 0;

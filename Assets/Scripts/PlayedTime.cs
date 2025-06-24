@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayedTime : MonoBehaviour
 {
@@ -11,10 +12,11 @@ public class PlayedTime : MonoBehaviour
 
     public void finishTimeAchievement()
     {
-        if (PlayerPrefs.GetFloat("PlayedTime", 0) == 60 && PlayerPrefs.GetInt("finishedActionPlayedTime1", 0) == 0) // ako smo kupili prvo auto
+        /*if (PlayerPrefs.GetFloat("PlayedTime", 0) == 60 && PlayerPrefs.GetInt("finishedActionPlayedTime1", 0) == 0) // ako smo kupili prvo auto
         {
+            AchievementAnimation.earnedCoins1 = 25;
             PlayerPrefs.SetInt("finishedActionPlayedTime1", 1);  // onemogucuje ponovo pokretanje ovog if statementa
-            Debug.Log("Izvrsilo se");
+            PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins", 0) + 25);
             setAchievementBehaviour("Achievement12", "finishedActionPlayedTime1", "TIME MASTERY I", "You have successfully passed mastery I");
         } else if (PlayerPrefs.GetFloat("PlayedTime", 0) < 60)
         {
@@ -23,6 +25,8 @@ public class PlayedTime : MonoBehaviour
 
         if (PlayerPrefs.GetFloat("PlayedTime", 0) == 90 && PlayerPrefs.GetInt("finishedActionPlayedTime2", 0) == 0) // ako smo kupili prvo auto
         {
+            AchievementAnimation.earnedCoins1 = 50;
+            PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins", 0) + 50);
             PlayerPrefs.SetInt("finishedActionPlayedTime2", 1);  // onemogucuje ponovo pokretanje ovog if statementa
 
             setAchievementBehaviour("Achievement13", "finishedActionPlayedTime2", "TIME MASTERY II", "You have successfully passed mastery II");
@@ -34,6 +38,8 @@ public class PlayedTime : MonoBehaviour
 
         if (PlayerPrefs.GetFloat("PlayedTime", 0) == 120 && PlayerPrefs.GetInt("finishedActionPlayedTime3", 0) == 0) // ako smo kupili prvo auto
         {
+            AchievementAnimation.earnedCoins1 = 100;
+            PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins", 0) + 100);
             PlayerPrefs.SetInt("finishedActionPlayedTime3", 1);  // onemogucuje ponovo pokretanje ovog if statementa
 
             setAchievementBehaviour("Achievement14", "finishedActionPlayedTime3", "TIME MASTERY III", "You have successfully passed mastery III");
@@ -45,6 +51,8 @@ public class PlayedTime : MonoBehaviour
 
         if (PlayerPrefs.GetFloat("PlayedTime", 0) == 150 && PlayerPrefs.GetInt("finishedActionPlayedTime4", 0) == 0) // ako smo kupili prvo auto
         {
+            AchievementAnimation.earnedCoins1 = 150;
+            PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins", 0) + 150);
             PlayerPrefs.SetInt("finishedActionPlayedTime4", 1);  // onemogucuje ponovo pokretanje ovog if statementa
 
             setAchievementBehaviour("Achievement15", "finishedActionPlayedTime4", "TIME MASTERY IV", "You have successfully passed mastery IV");
@@ -61,6 +69,8 @@ public class PlayedTime : MonoBehaviour
         }
         if (PlayerPrefs.GetFloat("PlayedTime", 0) == 180 && PlayerPrefs.GetInt("finishedActionPlayedTime5", 0) == 0) // ako smo kupili prvo auto
         {
+            AchievementAnimation.earnedCoins1 = 200;
+            PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins", 0) + 200);
             PlayerPrefs.SetInt("finishedActionPlayedTime5", 1);  // onemogucuje ponovo pokretanje ovog if statementa
             PlayerPrefs.SetInt("Achievement16", 1);
             darkPanel.gameObject.SetActive(true); // pogledati kasnije
@@ -68,7 +78,7 @@ public class PlayedTime : MonoBehaviour
             AchievementAnimation.PausePanelIntro("TIME MASTERY V", "You have successfully passed mastery V");
             isOkayToStartCount = true;
 
-        }
+        }*/
 
     }
 
@@ -82,7 +92,6 @@ public class PlayedTime : MonoBehaviour
         achievementObject.SetActive(true);
         AchievementAnimation.PausePanelIntro(title, message);
         isOkayToStartCount = true;
-        Debug.Log(PlayerPrefs.GetInt("indexOfAchievementPanelPlayedTime", 0));
+       // Debug.Log(PlayerPrefs.GetInt("indexOfAchievementPanelPlayedTime", 0));
     }
-
 }

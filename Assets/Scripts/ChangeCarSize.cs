@@ -25,7 +25,7 @@ public class ChangeCarSize : MonoBehaviour
 
     void Update()
     {
-        AdjustSpriteSize();
+        //AdjustSpriteSize();
     }
 
     public GameObject[] cars;
@@ -33,7 +33,7 @@ public class ChangeCarSize : MonoBehaviour
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        AdjustSpriteSize();
+        //AdjustSpriteSize();
         foreach (GameObject car in cars)
         {
             GetRelativePosition(car);

@@ -18,12 +18,12 @@ public class ChooseCar : MonoBehaviour
 
         if (sr == null)
         {
-            Debug.LogError("SpriteRenderer komponenta nije pronaðena na ovom objektu!");
+            //Debug.LogError("SpriteRenderer komponenta nije pronaðena na ovom objektu!");
         }
         else
         {
             string pathName = PlayerPrefs.GetString("CarSpriteName", "car18"); // uzima sejvani string 
-            Debug.Log("CarSpriteName iz PlayerPrefs: " + pathName);
+            //Debug.Log("CarSpriteName iz PlayerPrefs: " + pathName);
             Addressables.LoadAssetAsync<GameObject>(pathName).Completed += OnPrefabLoaded; // trazi taj string u addresable objektu
         }
     }
@@ -33,27 +33,28 @@ public class ChooseCar : MonoBehaviour
         if (obj.Status == AsyncOperationStatus.Succeeded)
         {
             GameObject prefab = obj.Result;
-            Debug.Log("Prefab uèitan iz Addressables: " + prefab);
+            //Debug.Log("Prefab uèitan iz Addressables: " + prefab);
 
             SpriteRenderer prefabSpriteRenderer = prefab.GetComponentInChildren<SpriteRenderer>(); // uzima spriterenderer od auta koja je dodano u addresable
             if (prefabSpriteRenderer != null)
             {
+                //Debug.Log($"Prefab: {prefab.name}, Sprite u prefab-u: {prefabSpriteRenderer.sprite.name}");
                 // Postavi novi sprite
                 sr.sprite = prefabSpriteRenderer.sprite; // sprite od auta u level sceni stavlja na sprite od auta iz addressable
 
-                Debug.Log("Sprite postavljen na: " + sr.sprite.name);
+                //Debug.Log("Sprite postavljen na: " + sr.sprite.name);
 
                 // Ruèno postavi dimenzije novog sprite-a
                 SetSpriteDimensions(desiredSize); // postavi zadane dimenzije auta
             }
             else
             {
-                Debug.LogError("Prefab nema SpriteRenderer komponentu!");
+                //Debug.LogError("Prefab nema SpriteRenderer komponentu!");
             }
         }
         else
         {
-            Debug.LogError("Prefab nije pronaðen u Addressables: " + obj.OperationException);
+            //Debug.LogError("Prefab nije pronaðen u Addressables: " + obj.OperationException);
         }
     }
 
@@ -61,7 +62,7 @@ public class ChooseCar : MonoBehaviour
     {
         if (sr.sprite == null)
         {
-            Debug.LogWarning("Novi sprite nije postavljen!");
+            //Debug.LogWarning("Novi sprite nije postavljen!");
             return;
         }
 

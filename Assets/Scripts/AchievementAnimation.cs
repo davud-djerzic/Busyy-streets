@@ -14,6 +14,9 @@ public class AchievementAnimation : MonoBehaviour
     [SerializeField] CanvasGroup canvasGroup;
     [SerializeField] TextMeshProUGUI achievementText;
     [SerializeField] TextMeshProUGUI underAchievementText;
+    [SerializeField] float earnedCoins;
+    public static float earnedCoins1;
+    [SerializeField] TextMeshProUGUI coinsText;
     public static float elapsedTime;
 
     private void Update()
@@ -35,6 +38,8 @@ public class AchievementAnimation : MonoBehaviour
 
     public void PausePanelIntro(string achievementTextArgument, string underAchievementTextArgument)
     {
+        //coinsText.text = $"+{earnedCoins.ToString()}";
+        coinsText.text = $"+{earnedCoins1.ToString()}";
         achievementText.text = achievementTextArgument; // postavljamo tekst koji smo mastery presli
         underAchievementText.text = underAchievementTextArgument;
         canvasGroup.DOFade(1, tweenDuration).SetUpdate(true); // desava se fade radi animacije kada se pause panel pojavljuje
@@ -51,6 +56,5 @@ public class AchievementAnimation : MonoBehaviour
     {
         await PausePanelOutro();
         achievementMenu.gameObject.SetActive(false);
-        Debug.Log("Izvrsilo se");
     }
 }

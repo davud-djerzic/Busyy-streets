@@ -22,18 +22,35 @@ public class Achievements : MonoBehaviour
             {
                 achievementTickObject[i].SetActive(true);
                 numberOfAchievements++;
-
             }
         }
         if (PlayerPrefs.GetInt("Achievement0", 0) == 1)
         {
-            fillImageMastery[0].fillAmount = 1; // make instagram slider full
-            percentageMastery[0].text = "100%"; // make instagram text 100%
+            if (PlayerPrefs.GetInt("FinishedAchievement0", 0) == 0)
+            {
+                PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins", 0) + 100);
+                fillImageMastery[0].fillAmount = 1; // make instagram slider full
+                percentageMastery[0].text = "100%"; // make instagram text 100%
+                PlayerPrefs.SetInt("FinishedAchievement0", 1);
+            } else
+            {
+                fillImageMastery[0].fillAmount = 1; // make instagram slider full
+                percentageMastery[0].text = "100%"; // make instagram text 100%
+            }
         }
         if (PlayerPrefs.GetInt("Achievement1", 0) == 1)
         {
-            fillImageMastery[1].fillAmount = 1; // make instagram slider full
-            percentageMastery[1].text = "100%"; // make instagram text 100%
+            if (PlayerPrefs.GetInt("FinishedAchievement1", 0) == 0)
+            {
+                PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins", 0) + 100);
+                fillImageMastery[1].fillAmount = 1; // make instagram slider full
+                percentageMastery[1].text = "100%"; // make instagram text 100%
+                PlayerPrefs.SetInt("FinishedAchievement1", 1);
+            } else
+            {
+                fillImageMastery[1].fillAmount = 1; // make instagram slider full
+                percentageMastery[1].text = "100%"; // make instagram text 100%
+            }
         }
         if (PlayerPrefs.GetInt("Achievement17", 0) == 1)
         {
@@ -41,10 +58,8 @@ public class Achievements : MonoBehaviour
             percentageMastery[2].text = "100%"; // make instagram text 100%
         }
 
-        float solvedAchievements = numberOfAchievements / achievementTickObject.Length;
+        float solvedAchievements = numberOfAchievements / 17;
         float percentageOfSolvedAchievements = solvedAchievements * 100;
-        /*Debug.Log(solvedAchievements);
-        Debug.Log(percentageOfSolvedAchievements);*/
         fillImage.fillAmount = solvedAchievements;
         percentage.text = Mathf.FloorToInt(percentageOfSolvedAchievements).ToString() + "%";
     }

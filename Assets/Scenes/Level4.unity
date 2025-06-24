@@ -773,7 +773,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 411a415f601d2654e936f5dc962c9a3e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6ab9eab1437a5a84f87c8d5c4c8caaef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1845,6 +1845,10 @@ MonoBehaviour:
   nextLevelPanel: {fileID: 979765595}
   pauseMenu: {fileID: 979765597}
   carAudio: {fileID: 1737835451}
+  winLosePanel: {fileID: 0}
+  winLosePanelPauseMenu: {fileID: 0}
+  winLoseText: {fileID: 0}
+  coinsText: {fileID: 0}
 --- !u!114 &564940561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2467,6 +2471,10 @@ MonoBehaviour:
   nextLevelPanel: {fileID: 979765595}
   pauseMenu: {fileID: 979765597}
   carAudio: {fileID: 1981921046}
+  winLosePanel: {fileID: 0}
+  winLosePanelPauseMenu: {fileID: 0}
+  winLoseText: {fileID: 0}
+  coinsText: {fileID: 0}
 --- !u!114 &709570907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3312,10 +3320,15 @@ MonoBehaviour:
   - {fileID: 709570907}
   - {fileID: 1532353563}
   - {fileID: 2074788864}
-  winText: {fileID: 589466306}
-  coinsText: {fileID: 1684096100}
   restartLevelPanel: {fileID: 402720135}
   pauseMenu: {fileID: 402720137}
+  winLosePanel: {fileID: 0}
+  winLosePanelPauseMenu: {fileID: 0}
+  winLoseText: {fileID: 0}
+  coinsText: {fileID: 1684096100}
+  AchievementAnimation: {fileID: 0}
+  achievementObject: {fileID: 0}
+  darkPanel: {fileID: 0}
   isWin: 0
 --- !u!4 &750024247
 Transform:
@@ -6069,6 +6082,10 @@ MonoBehaviour:
   nextLevelPanel: {fileID: 979765595}
   pauseMenu: {fileID: 979765597}
   carAudio: {fileID: 1754804314}
+  winLosePanel: {fileID: 0}
+  winLosePanelPauseMenu: {fileID: 0}
+  winLoseText: {fileID: 0}
+  coinsText: {fileID: 0}
 --- !u!114 &1532353563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8876,6 +8893,10 @@ MonoBehaviour:
   nextLevelPanel: {fileID: 979765595}
   pauseMenu: {fileID: 979765597}
   carAudio: {fileID: 725475397}
+  winLosePanel: {fileID: 0}
+  winLosePanelPauseMenu: {fileID: 0}
+  winLoseText: {fileID: 0}
+  coinsText: {fileID: 0}
 --- !u!114 &2074788864
 MonoBehaviour:
   m_ObjectHideFlags: 0

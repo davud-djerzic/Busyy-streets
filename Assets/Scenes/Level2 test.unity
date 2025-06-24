@@ -773,7 +773,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 411a415f601d2654e936f5dc962c9a3e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ec75be8ca19bdd94fbc61d3ae9bd3333, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1566,6 +1566,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1647,6 +1648,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d854826b21ede44bb466c7f2804b1ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wireColor: {r: 1, g: 1, b: 1, a: 1}
+  UnitsSize: 10
+  constraint: 1
+  camera: {fileID: 519420031}
+  executeInUpdate: 1
 --- !u!1 &529880529
 GameObject:
   m_ObjectHideFlags: 0
@@ -1817,8 +1835,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -49.4, y: -869.8}
-  m_SizeDelta: {x: 528.2, y: 513.7}
+  m_AnchoredPosition: {x: -49.4, y: -849.3}
+  m_SizeDelta: {x: 528.2, y: 789.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &564940560
 MonoBehaviour:
@@ -1845,6 +1863,10 @@ MonoBehaviour:
   nextLevelPanel: {fileID: 979765595}
   pauseMenu: {fileID: 979765597}
   carAudio: {fileID: 1737835451}
+  winLosePanel: {fileID: 0}
+  winLosePanelPauseMenu: {fileID: 0}
+  winLoseText: {fileID: 0}
+  coinsText: {fileID: 0}
 --- !u!114 &564940561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2437,8 +2459,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 89.947}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 334, y: -1293}
-  m_SizeDelta: {x: 414.1, y: 486.9}
+  m_AnchoredPosition: {x: 453, y: -1389.1}
+  m_SizeDelta: {x: 452, y: 486.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &709570906
 MonoBehaviour:
@@ -2467,6 +2489,10 @@ MonoBehaviour:
   nextLevelPanel: {fileID: 979765595}
   pauseMenu: {fileID: 979765597}
   carAudio: {fileID: 1981921046}
+  winLosePanel: {fileID: 0}
+  winLosePanelPauseMenu: {fileID: 0}
+  winLoseText: {fileID: 0}
+  coinsText: {fileID: 0}
 --- !u!114 &709570907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2755,6 +2781,7 @@ GameObject:
   - component: {fileID: 725475396}
   - component: {fileID: 725475397}
   - component: {fileID: 725475398}
+  - component: {fileID: 725475399}
   m_Layer: 0
   m_Name: Car
   m_TagString: Car
@@ -2771,7 +2798,7 @@ Transform:
   m_GameObject: {fileID: 725475388}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.008726465, w: 0.999962}
-  m_LocalPosition: {x: 120, y: 1181, z: -1}
+  m_LocalPosition: {x: -248.61206, y: 987.7268, z: -25002.04}
   m_LocalScale: {x: 64.799995, y: 57.600002, z: -1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3144,6 +3171,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &725475399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725475388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d553c52363bc46a449ccfee80b0b0879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  executeInUpdate: 0
+  anchorType: 4
+  anchorOffset: {x: -3, y: -1, z: 0}
 --- !u!1 &726481410
 GameObject:
   m_ObjectHideFlags: 0
@@ -3312,10 +3354,15 @@ MonoBehaviour:
   - {fileID: 709570907}
   - {fileID: 1532353563}
   - {fileID: 2074788864}
-  winText: {fileID: 589466306}
-  coinsText: {fileID: 1684096100}
   restartLevelPanel: {fileID: 402720135}
   pauseMenu: {fileID: 402720137}
+  winLosePanel: {fileID: 0}
+  winLosePanelPauseMenu: {fileID: 0}
+  winLoseText: {fileID: 0}
+  coinsText: {fileID: 1684096100}
+  AchievementAnimation: {fileID: 0}
+  achievementObject: {fileID: 0}
+  darkPanel: {fileID: 0}
   isWin: 0
 --- !u!4 &750024247
 Transform:
@@ -6039,8 +6086,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 89.165}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 64.5, y: -1803.6}
-  m_SizeDelta: {x: 420.5, y: 261.6}
+  m_AnchoredPosition: {x: 114.3, y: -2034.6}
+  m_SizeDelta: {x: 505.5, y: 525.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1532353562
 MonoBehaviour:
@@ -6069,6 +6116,10 @@ MonoBehaviour:
   nextLevelPanel: {fileID: 979765595}
   pauseMenu: {fileID: 979765597}
   carAudio: {fileID: 1754804314}
+  winLosePanel: {fileID: 0}
+  winLosePanelPauseMenu: {fileID: 0}
+  winLoseText: {fileID: 0}
+  coinsText: {fileID: 0}
 --- !u!114 &1532353563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7101,6 +7152,7 @@ GameObject:
   - component: {fileID: 1737835450}
   - component: {fileID: 1737835451}
   - component: {fileID: 1737835452}
+  - component: {fileID: 1737835453}
   m_Layer: 0
   m_Name: Car3
   m_TagString: Car
@@ -7117,7 +7169,7 @@ Transform:
   m_GameObject: {fileID: 1737835442}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.70764035, w: 0.70657283}
-  m_LocalPosition: {x: 509, y: 1976, z: -0.03670349}
+  m_LocalPosition: {x: 433.26398, y: 1543.3269, z: -25002.04}
   m_LocalScale: {x: 54.000004, y: 54.000004, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7490,6 +7542,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1737835453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737835442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d553c52363bc46a449ccfee80b0b0879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  executeInUpdate: 0
+  anchorType: 7
+  anchorOffset: {x: -0.57, y: -4, z: 0}
 --- !u!1 &1754804304
 GameObject:
   m_ObjectHideFlags: 0
@@ -7507,6 +7574,7 @@ GameObject:
   - component: {fileID: 1754804313}
   - component: {fileID: 1754804314}
   - component: {fileID: 1754804315}
+  - component: {fileID: 1754804316}
   m_Layer: 0
   m_Name: Square
   m_TagString: Car
@@ -7523,7 +7591,7 @@ Transform:
   m_GameObject: {fileID: 1754804304}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.70122766, w: 0.7129375}
-  m_LocalPosition: {x: 662, y: 673, z: -1}
+  m_LocalPosition: {x: 737.578, y: -401.2732, z: -25002.04}
   m_LocalScale: {x: 56, y: 54, z: -1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7888,6 +7956,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1754804316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754804304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d553c52363bc46a449ccfee80b0b0879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  executeInUpdate: 0
+  anchorType: 1
+  anchorOffset: {x: 0.55, y: -1, z: 0}
 --- !u!1 &1828247400
 GameObject:
   m_ObjectHideFlags: 0
@@ -8287,6 +8370,7 @@ GameObject:
   - component: {fileID: 1981921045}
   - component: {fileID: 1981921046}
   - component: {fileID: 1981921047}
+  - component: {fileID: 1981921048}
   m_Layer: 0
   m_Name: Car1
   m_TagString: Car
@@ -8303,7 +8387,7 @@ Transform:
   m_GameObject: {fileID: 1981921037}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.9999994, w: -0.0011118031}
-  m_LocalPosition: {x: 271, y: 1180, z: -1}
+  m_LocalPosition: {x: 636.4, y: 1324.13, z: -25002.04}
   m_LocalScale: {x: 56, y: 54.000004, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8676,6 +8760,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1981921048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981921037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d553c52363bc46a449ccfee80b0b0879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  executeInUpdate: 0
+  anchorType: 4
+  anchorOffset: {x: 3, y: 0.85, z: 0}
 --- !u!1 &2062271503
 GameObject:
   m_ObjectHideFlags: 0
@@ -8846,8 +8945,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -363.1, y: -1311.9}
-  m_SizeDelta: {x: 426.2, y: 254.1}
+  m_AnchoredPosition: {x: -435, y: -1600.4}
+  m_SizeDelta: {x: 570, y: 499.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2074788863
 MonoBehaviour:
@@ -8876,6 +8975,10 @@ MonoBehaviour:
   nextLevelPanel: {fileID: 979765595}
   pauseMenu: {fileID: 979765597}
   carAudio: {fileID: 725475397}
+  winLosePanel: {fileID: 0}
+  winLosePanelPauseMenu: {fileID: 0}
+  winLoseText: {fileID: 0}
+  coinsText: {fileID: 0}
 --- !u!114 &2074788864
 MonoBehaviour:
   m_ObjectHideFlags: 0

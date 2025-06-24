@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using TMPro;
 using System.Threading.Tasks;
+using System.Linq;
 
 public class guideOfGame : MonoBehaviour
 {
@@ -23,9 +24,14 @@ public class guideOfGame : MonoBehaviour
         activateFirstPanel();
     }
 
-    void activateFirstPanel()
+    public void activateFirstPanel()
     {
         guidePanels[0].SetActive(true);
+        for (int i = 1; i < guidePanels.Length; i++)
+        {
+            guidePanels[i].SetActive(false);
+        }
+        currentSlide = 0;
     }
 
     public void changeSlide(int number) // ova funkcija se poziva kada se klikne button nextCar u Garage scene
@@ -40,7 +46,7 @@ public class guideOfGame : MonoBehaviour
             currentSlide = guidePanels.Length - 1;
         }
         
-        if (PlayerPrefs.GetInt("FinishGuideOfGame", 0) == 0)
+        /*if (PlayerPrefs.GetInt("FinishGuideOfGame", 0) == 0)
         {
             if (currentSlide >= guidePanels.Length - 1)
             {
@@ -48,7 +54,7 @@ public class guideOfGame : MonoBehaviour
                 PlayerPrefs.SetInt("Achievement17", 1);
                 //PlayerPrefs.SetInt("")
             }
-        }
+        }*/
     }
 
     public void activeSlide()

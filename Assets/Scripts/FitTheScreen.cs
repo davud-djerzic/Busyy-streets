@@ -10,7 +10,7 @@ public class FitTheScreen : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        AdjustSpriteSize();
+        //AdjustSpriteSize();
     }
 
     void AdjustSpriteSize()
@@ -32,7 +32,7 @@ public class FitTheScreen : MonoBehaviour
 
     void Update()
     {
-        AdjustSpriteSize();
+        //AdjustSpriteSize();
     }
 }
 

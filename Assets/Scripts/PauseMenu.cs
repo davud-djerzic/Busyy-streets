@@ -35,6 +35,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Restart() 
     {
+        PlayerPrefs.SetInt("Streak", 0);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // reloada level
         Time.timeScale = 1; // seta vrijednost timeScale na 1
         Timer.elapsedTime = 0; // vraca vrijeme proteklo za igru na 0
@@ -58,7 +59,25 @@ public class PauseMenu : MonoBehaviour
         blackImage.SetActive(true); 
         transitionAnim.SetTrigger("End"); // pokrece se animacija za kraj levela
         yield return new WaitForSeconds(1); // zaustavlja se protok igrice na sekundu
-        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1); // loada se novi level
+        if (PlayerPrefs.GetInt("Saved", 1) == 37 && PlayerPrefs.GetInt("CompletedGame", 0) == 0)
+        {
+            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1); // loada se novi level
+        } else if (PlayerPrefs.GetInt("Saved", 1) == 37 && PlayerPrefs.GetInt("CompletedGame", 0) == 1)
+        {
+            if (PlayerPrefs.GetInt("ChoosenLevel", 1) == 17)
+            {
+                SceneManager.LoadScene(0);
+            } else
+            {
+                SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+        }
+
+        else if (PlayerPrefs.GetInt("Saved", 1) < 37)
+        {
+            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1); // loada se novi level
+        }
+
         transitionAnim.SetTrigger("Start"); // pokrece se animacija za pocetak levela
     }
 

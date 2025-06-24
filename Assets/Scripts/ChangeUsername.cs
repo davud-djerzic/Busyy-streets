@@ -15,11 +15,6 @@ public class ChangeUsername : MonoBehaviour
     public TextMeshProUGUI textHolderText;
     public static bool isAllowToChangeUsername = true;
 
-    /*public void activeUsernamePanel(bool state)
-    {
-        usernamePanel.SetActive(state);
-    }*/
-
     public void changeUsername()
     {
         if (inputField.text.Length > 0 && inputField.text.Length < 15)

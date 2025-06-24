@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.SearchService;
@@ -37,7 +38,6 @@ public class BoomBoom : MonoBehaviour
     {
         CheckWin.streak = 0;
         loadNextScene();
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Timer.elapsedTime = 0;
     }
 
@@ -47,6 +47,6 @@ public class BoomBoom : MonoBehaviour
         restartLevelPanel.SetActive(true);
         Timer.elapsedTime = 0;
         Timer.isOkayToCount = false;
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
+#endif
