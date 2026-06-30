@@ -34,4 +34,4 @@ Busy Streets is a 2D educational and entertaining mobile game developed in Unity
 ### Clone the repository
 
 ```bash
-git clone https://github.com/Gembird43/Busyy-streets.git
+git clone https://github.com/davud-djerzic/Busyy-streets
